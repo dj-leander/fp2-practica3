@@ -31,3 +31,11 @@ int *random_vect(unsigned int size)
 
 	return arr;
 }
+
+// This function swaps values pointed by a and b
+void swap(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
