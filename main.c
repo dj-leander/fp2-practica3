@@ -64,6 +64,10 @@ void main()
 	*/
 
 	n_iters = 0;
+	bubble_sort(arr_10, 10, &n_iters);
+	printf("n_iters 10 = %llu\n", n_iters);
+
+	n_iters = 0;
 	merge_sort(arr_10, 10, &n_iters);
 	printf("n_iters 10 = %llu\n", n_iters);
 

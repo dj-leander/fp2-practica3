@@ -32,10 +32,21 @@ int *random_vect(unsigned int size)
 	return arr;
 }
 
-// This function swaps values pointed by a and b
+/* This function swaps values pointed by a and b */
 void swap(int *a, int *b)
 {
 	int temp = *a;
 	*a = *b;
 	*b = temp;
+}
+
+/* Function to print the final array */
+void print_array(int array[], unsigned int size)
+{
+	printf("[ ");
+	for (unsigned int i = 0; i < size; ++i)
+	{
+		printf("%d ", array[i]);
+	}
+	printf("]\n");
 }

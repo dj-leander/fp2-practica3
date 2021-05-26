@@ -3,3 +3,5 @@
 int *random_vect(unsigned int size);
 
 void swap(int *a, int *b);
+
+void print_array(int array[], unsigned int size);
