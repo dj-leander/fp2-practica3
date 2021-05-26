@@ -1,4 +1,4 @@
-#include "vector.h"
+#include "utils.h"
 
 /*
  * Sorts an array of specified size using election sort iterative algorithm
