@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <time.h>
 
-#include "vector.h"
+#include "utils.h"
 #include "selection_sort.h"
 #include "insertion_sort.h"
 #include "merge_sort.h"
