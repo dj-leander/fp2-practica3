@@ -23,6 +23,9 @@
     <ClCompile Include="insertion_sort.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="merge_sort.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vector.h">
@@ -32,6 +35,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="insertion_sort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="merge_sort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

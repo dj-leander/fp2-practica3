@@ -141,11 +141,13 @@
   <ItemGroup>
     <ClCompile Include="insertion_sort.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="merge_sort.c" />
     <ClCompile Include="selection_sort.c" />
     <ClCompile Include="vector.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="insertion_sort.h" />
+    <ClInclude Include="merge_sort.h" />
     <ClInclude Include="selection_sort.h" />
     <ClInclude Include="vector.h" />
   </ItemGroup>
