@@ -10,11 +10,11 @@
 		and moves the greatest element to the right. This proccess is repeated
 		with one element less at each time.
 */
-void bubble_sort(int arr[], int size, unsigned long long *count)
+void bubble_sort(int arr[], unsigned int size, unsigned long long *count)
 {
-	int i, j;
-	//Main loop
+	unsigned int i, j;
 	
+	/* Main loop */
 	for (i = 0; i < size - 1; i++)
 	{ 
 		for (j = 0; j < size - i - 1; j++)
