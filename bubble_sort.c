@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#include "vector.h"
+#include "utils.h"
 
 /*
 	Description:
@@ -13,7 +13,8 @@
 void bubble_sort(int arr[], int size, unsigned long long *count)
 {
 	int i, j;
-	 //Main loop
+	//Main loop
+	
 	for (i = 0; i < size - 1; i++)
 	{ 
 		for (j = 0; j < size - i - 1; j++)
@@ -23,8 +24,6 @@ void bubble_sort(int arr[], int size, unsigned long long *count)
 			if (arr[j] > arr[j + 1])
 				swap(&arr[j], &arr[j + 1]);
 		}
-		print_array(arr, size);
 	}
-	
 }
  

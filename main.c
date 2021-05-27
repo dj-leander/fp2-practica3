@@ -6,6 +6,7 @@
 #include "selection_sort.h"
 #include "insertion_sort.h"
 #include "merge_sort.h"
+#include "bubble_sort.h"
 
 void main()
 {
@@ -68,22 +69,18 @@ void main()
 	printf("n_iters 10 = %llu\n", n_iters);
 
 	n_iters = 0;
-	merge_sort(arr_10, 10, &n_iters);
-	printf("n_iters 10 = %llu\n", n_iters);
-
-	n_iters = 0;
-	merge_sort(arr_100, 100, &n_iters);
+	bubble_sort(arr_100, 100, &n_iters);
 	printf("n_iters 100 = %llu\n", n_iters);
 
 	n_iters = 0;
-	merge_sort(arr_1000, 1000, &n_iters);
+	bubble_sort(arr_1000, 1000, &n_iters);
 	printf("n_iters 1000 = %llu\n", n_iters);
 
 	n_iters = 0;
-	merge_sort(arr_10000, 10000, &n_iters);
+	bubble_sort(arr_10000, 10000, &n_iters);
 	printf("n_iters 10000 = %llu\n", n_iters);
 
 	n_iters = 0;
-	merge_sort(arr_100000, 100000, &n_iters);
+	bubble_sort(arr_100000, 100000, &n_iters);
 	printf("n_iters 100000 = %llu\n", n_iters);
 }
