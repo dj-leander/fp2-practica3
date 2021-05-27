@@ -32,7 +32,7 @@
     <ClCompile Include="quick_sort.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test.c">
+    <ClCompile Include="tests.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -55,7 +55,7 @@
     <ClInclude Include="quick_sort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="test.h">
+    <ClInclude Include="tests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

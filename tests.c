@@ -1,7 +1,9 @@
 #include <stdbool.h>
+#include "tests.h"
 
 /*
 	Description:
+		Determines if an array is ordered in ascending order.
 		
 */
 bool is_ordered(int arr[], unsigned int size)
