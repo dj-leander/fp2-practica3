@@ -32,6 +32,12 @@
     <ClCompile Include="quick_sort.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="tests.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -46,16 +52,19 @@
     <ClInclude Include="insertion_sort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="merge_sort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="bubble_sort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="quick_sort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="tests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="merge_sort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

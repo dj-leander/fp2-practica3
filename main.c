@@ -9,6 +9,7 @@
 #include "bubble_sort.h"
 #include "quick_sort.h"
 #include "tests.h"
+#include "test.h"
 
 void main()
 {
@@ -86,8 +87,10 @@ void main()
 	n_iters = 0;
 	bubble_sort(arr_100000, 100000, &n_iters);
 	printf("n_iters 100000 = %llu\n", n_iters);
-	*/ 
-
+	*/
+ 
+	
+	/*
 	n_iters = 0;
 	quick_sort(arr_10, 10, &n_iters);
 	printf("n_iters 10 = %llu\n", n_iters);
@@ -106,6 +109,7 @@ void main()
 
 	n_iters = 0;
 	quick_sort(arr_100000, 100000, &n_iters);
-	printf("n_iters 100000 = %llu\n", n_iters); 
+	printf("n_iters 100000 = %llu\n", n_iters);
+	*/
 
 }

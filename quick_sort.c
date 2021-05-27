@@ -61,7 +61,7 @@ int partition(int arr[], int left, int right)
 
 	 /* Increment the # of times this function is accessed */
 	 ++*n_iters;
-	
+
 	 /* 
 	 printf("\n");
 	 print_partial_array(arr, left, right);
