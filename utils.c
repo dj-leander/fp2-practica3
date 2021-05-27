@@ -28,7 +28,7 @@ int *random_vect(unsigned int size)
 
 	/* Fill the array with random numbers */
 	for (unsigned int i = 0; i < size; i++)
-		arr[i] = rand();
+		*(arr + i) = rand();
 
 	return arr;
 }
@@ -54,10 +54,31 @@ int *intdup(int *src, unsigned int size)
 	return a;
 }
 
-// This function swaps values pointed by a and b
+/* This function swaps values pointed by a and b */
 void swap(int *a, int *b)
 {
 	int temp = *a;
 	*a = *b;
 	*b = temp;
+}
+
+/* Prints an array on the screen */
+void print_partial_array(int arr[], unsigned int l, unsigned int r)
+{
+	printf("[ ");
+	// for (; l <= r; l++)
+	while (l <= r)
+	{ 
+		printf("%d ", arr[l]);
+		l++;
+	}
+	printf("]");
+}
+
+void print_entire_array(int arr[], unsigned int size)
+{
+	printf("\n[ ");
+	for (unsigned int i = 0; i < size; i++)
+		printf("%d ", arr[i]);
+	printf("]");
 }

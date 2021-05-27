@@ -86,9 +86,8 @@ void main()
 	n_iters = 0;
 	bubble_sort(arr_100000, 100000, &n_iters);
 	printf("n_iters 100000 = %llu\n", n_iters);
-	*/
- 
-	/* 
+	*/ 
+
 	n_iters = 0;
 	quick_sort(arr_10, 10, &n_iters);
 	printf("n_iters 10 = %llu\n", n_iters);
@@ -108,8 +107,5 @@ void main()
 	n_iters = 0;
 	quick_sort(arr_100000, 100000, &n_iters);
 	printf("n_iters 100000 = %llu\n", n_iters); 
-	*/
-	int arr[] = { 1, 2, 3 };
-	if(is_ordered(arr, 3))
-		printf("The list is ordered\n");
+
 }

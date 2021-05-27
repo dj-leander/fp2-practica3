@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include "quick_sort.h"
 #include "utils.h"
 
@@ -5,21 +7,23 @@
 *	Description:
 *		Returns the position of the pivot element. 
 */
-unsigned int partition(int arr[], unsigned int left, unsigned int right)
+int partition(int arr[], int left, int right)
 {
 	int pivot = arr[right];		/* The last element is used as pivot */
 
-	unsigned i = left;		/* left search pointer*/
-	unsigned j = right - 1;	/* right search pointer*/
+	int i = left;		/* left search pointer*/
+	int j = right - 1;	/* right search pointer*/
+
+	// printf("i = %2u j = %2u\t", i, j);
 
 	while (i < j)
 	{
 		/* Find the first element >= pivot */
-		while (arr[i] < pivot)	/* If current element is < pivot */
+		while (i < right - 1 && arr[i] < pivot )	/* If current element is < pivot */
 			i++;				/* Move to the next element */
 		
 		/* Find the first element < pivot */
-		while (j > left && arr[j] >= pivot)	/* If current element is > pivot */
+		while (j > left && arr[j] >= pivot)	/* If current element is >= pivot */
 			j--;							/* Move to the next element */
 
 		/* Place in the correct section the first major and minor number found */
@@ -50,15 +54,22 @@ unsigned int partition(int arr[], unsigned int left, unsigned int right)
 *		This proccess is repeated until the sections have one element.
 *		Because one element by definition is sorted.
 */
- void quick_sort_aux(int arr[], unsigned int left, unsigned int right, unsigned long long *n_iters)
+ void quick_sort_aux(int arr[], int left, int right, int long long *n_iters)
 {
 	 if (left >= right)
 		 return;
 
 	 /* Increment the # of times this function is accessed */
 	 ++*n_iters;
+	
+	 /* 
+	 printf("\n");
+	 print_partial_array(arr, left, right);
+	 printf("\tleft = %2u right = %2u\t", left, right);
+	*/
 
-	 unsigned int pivot_pos = partition(arr, left, right);
+	 int pivot_pos = partition(arr, left, right);
+	 // printf("pivot_pos = %u", pivot_pos);
 	 quick_sort_aux(arr, left, pivot_pos - 1, n_iters);
 	 quick_sort_aux(arr, pivot_pos + 1, right, n_iters);
 }
@@ -66,7 +77,7 @@ unsigned int partition(int arr[], unsigned int left, unsigned int right)
 /*
 *		
 */
- void quick_sort(int arr[], unsigned int size, unsigned long long *n_iters)
+ void quick_sort(int arr[], unsigned int size, unsigned long long* n_iters)
  {
 	 quick_sort_aux(arr, 0, size - 1, n_iters);
  }
