@@ -5,7 +5,7 @@
 *	Description:
 *		Returns the position of the pivot element. 
 */
-unsigned partition(int arr[], unsigned left, unsigned right)
+unsigned int partition(int arr[], unsigned int left, unsigned int right)
 {
 	int pivot = arr[right];		/* The last element is used as pivot */
 
@@ -50,9 +50,9 @@ unsigned partition(int arr[], unsigned left, unsigned right)
 *		This proccess is repeated until the sections have one element.
 *		Because one element by definition is sorted.
 */
- void quick_sort_aux(int arr[], unsigned left, unsigned right, unsigned long long *n_iters)
+ void quick_sort_aux(int arr[], unsigned int left, unsigned int right, unsigned long long *n_iters)
 {
-	 if (left < right)
+	 if (left >= right)
 		 return;
 
 	 /* Increment the # of times this function is accessed */
@@ -66,7 +66,7 @@ unsigned partition(int arr[], unsigned left, unsigned right)
 /*
 *		
 */
- void quick_sort(int arr[], unsigned size, unsigned long long *n_iters)
+ void quick_sort(int arr[], unsigned int size, unsigned long long *n_iters)
  {
 	 quick_sort_aux(arr, 0, size - 1, n_iters);
  }
