@@ -26,4 +26,3 @@ void bubble_sort(int arr[], int size, unsigned long long *count)
 		}
 	}
 }
- 
