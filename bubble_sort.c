@@ -12,9 +12,9 @@
 */
 void bubble_sort(int arr[], unsigned int size, unsigned long long *count)
 {
-	int i, j;
-	//Main loop
+	unsigned int i, j;
 	
+	/* Main loop */
 	for (i = 0; i < size - 1; i++)
 	{ 
 		for (j = 0; j < size - i - 1; j++)
