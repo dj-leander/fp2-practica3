@@ -144,14 +144,14 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="merge_sort.c" />
     <ClCompile Include="selection_sort.c" />
-    <ClCompile Include="vector.c" />
+    <ClCompile Include="utils.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bubble_sort.h" />
     <ClInclude Include="insertion_sort.h" />
     <ClInclude Include="merge_sort.h" />
     <ClInclude Include="selection_sort.h" />
-    <ClInclude Include="vector.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
