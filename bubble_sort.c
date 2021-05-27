@@ -13,14 +13,13 @@
 void bubble_sort(int arr[], int size, unsigned long long *count)
 {
 	int i, j;
-	//Main loop
-	
+	/* Main loop */
 	for (i = 0; i < size - 1; i++)
 	{ 
 		for (j = 0; j < size - i - 1; j++)
 		{
 			++*count;
-			//Swap elements if first number is bigger than its follower
+			/* Swap elements if first number is bigger than its follower */
 			if (arr[j] > arr[j + 1])
 				swap(&arr[j], &arr[j + 1]);
 		}
