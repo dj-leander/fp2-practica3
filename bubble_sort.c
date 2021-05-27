@@ -20,7 +20,7 @@ void bubble_sort(int arr[], unsigned int size, unsigned long long *count)
 		for (j = 0; j < size - i - 1; j++)
 		{
 			++*count;
-			//Swap elements if first number is bigger than its follower
+			/* Swap elements if first number is bigger than its follower */
 			if (arr[j] > arr[j + 1])
 				swap(&arr[j], &arr[j + 1]);
 		}
