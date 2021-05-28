@@ -7,43 +7,30 @@
 *	Description:
 *		Returns the position of the pivot element. 
 */
-int partition(int arr[], int left, int right)
+unsigned int partition(int arr[], unsigned int l, unsigned int r)
 {
-	int pivot = arr[right];		/* The last element is used as pivot */
+	int pivot = arr[r];		/* The last element is used as pivot */
 
-	int i = left;		/* left search pointer */
-	int j = right - 1;	/* right search pointer */
+	unsigned int i = l;		/* left search pointer */
+	unsigned int j;			/* right search pointer */
 
-	// printf("i = %2u j = %2u\t", i, j);
+	/*
+	 * In each loop iteration, a new element of index j is processed,
+	 * and all processed elements <= pivot are kept to the left, with indices < i.
+	 */
+	for (j = l; j < r; j++)
+		if (arr[j] <= pivot)
+			/* First swap, then increment i */
+			swap(&arr[i++], &arr[j]);
 
-	while (i < j)
-	{
-		/* Find the first element >= pivot */
-		while (i < right - 1 && arr[i] < pivot )	/* If current element is < pivot */
-			i++;				/* Move to the next element */
-		
-		/* Find the first element < pivot */
-		while (j > left && arr[j] >= pivot)	/* If current element is >= pivot */
-			j--;							/* Move to the next element */
+	/*
+	 * By swapping pivot A[r] with A[i], now all elements <= pivot are kept to the left,
+	 * with indices <= i, and all elements > pivot are kept to the right.
+	 * Placing the pivot in position i allows skipping it during recursive sorting.
+	 */
+	swap(&arr[i], &arr[r]);
 
-		/* Place in the correct section the first major and minor number found */
-		if (i < j)
-		{
-			swap(&arr[i], &arr[j]);
-			i++;
-			j--; 
-		} 
-	}
-
-	/* Move i to the right in order to mark the start of the right section */
-	if (i == j && arr[i] < pivot)
-		i++;
-
-	/* Move pivot element to the center of sections */
-	if (arr[i] != pivot)
-		swap(&arr[i], &arr[right]);
-
-	/* Return the position of pivot element */
+	/* Return index i of pivot, now stored as A[i]. */
 	return i; 
 }
 
@@ -54,28 +41,21 @@ int partition(int arr[], int left, int right)
 *		This proccess is repeated until the sections have one element.
 *		Because one element by definition is sorted.
 */
- void quick_sort_aux(int arr[], int left, int right, int long long *n_iters)
+ void quick_sort_aux(int arr[], unsigned int l, unsigned int r, unsigned long long *n_iters)
 {
-	 if (left >= right)
-		 return;
+	 if (l < r) {
+		 /* Increment the # of times this function is accessed */
+		 ++*n_iters;
 
-	 /* Increment the # of times this function is accessed */
-	 ++*n_iters;
+		 unsigned int pivot_pos = partition(arr, l, r);
 
-	 /* 
-	 printf("\n");
-	 print_partial_array(arr, left, right);
-	 printf("\tleft = %2u right = %2u\t", left, right);
-	*/
-
-	 int pivot_pos = partition(arr, left, right);
-	 // printf("pivot_pos = %u", pivot_pos);
-	 quick_sort_aux(arr, left, pivot_pos - 1, n_iters);
-	 quick_sort_aux(arr, pivot_pos + 1, right, n_iters);
+		 quick_sort_aux(arr, l, pivot_pos - 1, n_iters);
+		 quick_sort_aux(arr, pivot_pos + 1, r, n_iters);
+	 }
 }
  
 /*
-*		
+ * Wrapper to call quick sort
 */
  void quick_sort(int arr[], unsigned int size, unsigned long long* n_iters)
  {
