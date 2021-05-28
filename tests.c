@@ -66,35 +66,43 @@ void test_sort_functions(int *test_arrays[N_MEASUREMENTS][N_SIZES])
 	/* evaluate each sort function */
 	for (int i = 0; i < N_SORT_FUNCTIONS; i++)
 	{
-		printf("Testing the %s() function\n", functions[i].name);
+		printf("Testing the %s() function\n\n", functions[i].name);
 
-		/* Do multiple measurements */
-		for (int j = 0; j < N_MEASUREMENTS; j++)
+		/* For different array sizes */
+		for (int j = 0; j < N_SIZES; j++)
 		{
-			printf("\nMEASURE %d\n", j);
+			/* Array size */
+			unsigned int size = ARRAY_SIZES[j];
 
-			/* For different array sizes */
-			for (int k = 0; k < N_SIZES; k++)
+			printf("ARRAY SIZE: %d\n", size);
+
+			/* Total time */
+			double total_time = 0;
+
+			/* Do multiple measurements */
+			for (int k = 0; k < N_MEASUREMENTS; k++)
 			{
 				/* Number of iterations of inner loop or recursive calls */
 				unsigned long long n_iters = 0;
-
-				/* Array size */
-				unsigned int size = ARRAY_SIZES[k];
-
+				
 				/* Crete a copy of the original random array as we don't want to modify it */
-				int *array_copy = intdup(test_arrays[j][k], size);
+				int *array_copy = intdup(test_arrays[k][j], size);
 
 				/* Call the sort function and measure its time */
 				double time_elapsed = time_sort_function(functions[i].func_ptr, array_copy, size, &n_iters);
 
+				total_time += time_elapsed;
+
 				/* Check if array sorted correctly */
 				bool ok = is_ordered(array_copy, size);
 
-				printf("array size: %6d\ttime elapsed: %f s\tn_iters: %10llu\ttest ok? %s\n", size, time_elapsed, n_iters, ok ? "true": "false");
+				printf("MEASURE: %d\ttime elapsed: %f s\tn_iters: %10llu\ttest ok? %s\n",
+					k, time_elapsed, n_iters, ok ? "true" : "false");
 
 				free(array_copy);
 			}
+
+			printf("total time: %f s\taverage: %f s\n\n", total_time, total_time / N_MEASUREMENTS);
 		}
 	}
 }
