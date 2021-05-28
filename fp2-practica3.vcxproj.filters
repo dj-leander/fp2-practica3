@@ -46,6 +46,15 @@
     <ClInclude Include="insertion_sort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="bubble_sort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="quick_sort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="merge_sort.h">
       <Filter>Header Files</Filter>
     </ClInclude>

@@ -28,8 +28,8 @@ int *random_vect(unsigned int size)
 
 	/* Fill the array with random numbers */
 	for (unsigned int i = 0; i < size; i++)
-		*(arr + i) = rand();
-
+		arr[i] = rand();
+	
 	return arr;
 }
 
