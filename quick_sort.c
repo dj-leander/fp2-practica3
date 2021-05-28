@@ -49,8 +49,11 @@ unsigned int partition(int arr[], unsigned int l, unsigned int r)
 
 		 unsigned int pivot_pos = partition(arr, l, r);
 
-		 quick_sort_aux(arr, l, pivot_pos - 1, n_iters);
-		 quick_sort_aux(arr, pivot_pos + 1, r, n_iters);
+		 /* Pivot must be higher that leftmost index */
+		 if (pivot_pos > l)
+			quick_sort_aux(arr, l, pivot_pos - 1, n_iters);
+
+		quick_sort_aux(arr, pivot_pos + 1, r, n_iters);
 	 }
 }
  
