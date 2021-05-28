@@ -5,7 +5,7 @@
 #define N_SIZES 5
 #define N_MEASUREMENTS 5
 
-#define N_SORT_FUNCTIONS 4
+#define N_SORT_FUNCTIONS 5
 
 #define FUNC_DEF(func) { func, #func }
 

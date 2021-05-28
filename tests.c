@@ -6,6 +6,7 @@
 #include "insertion_sort.h"
 #include "merge_sort.h"
 #include "bubble_sort.h"
+#include "quick_sort.h"
 
 #include "utils.h"
 #include "tests.h"
@@ -60,7 +61,8 @@ void test_sort_functions(int *test_arrays[N_MEASUREMENTS][N_SIZES])
 		FUNC_DEF(selection_sort),
 		FUNC_DEF(insertion_sort),
 		FUNC_DEF(merge_sort),
-		FUNC_DEF(bubble_sort)
+		FUNC_DEF(bubble_sort),
+		FUNC_DEF(quick_sort)
 	};
 
 	/* evaluate each sort function */

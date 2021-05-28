@@ -16,7 +16,6 @@ void main()
 
 	printf("Generating random vectors...\n\n");
 
-	int arr[] = { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
 	int *arr_10 = random_vect(10);
 	int *arr_100 = random_vect(100);
 	int *arr_1000 = random_vect(1000);
@@ -24,7 +23,6 @@ void main()
 	int *arr_100000 = random_vect(100000);
 	
 	unsigned long long n_iters = 0;
-	/*
 	selection_sort(arr_10, 10, &n_iters);
 	printf("n_iters 10 = %llu\n", n_iters);
 	int *test_arrays[N_MEASUREMENTS][N_SIZES];
@@ -41,6 +39,7 @@ void main()
 
 	printf("Freeing memory...");
 
+	/*
 	n_iters = 0;
 	insertion_sort(arr_100, 100, &n_iters);
 	printf("n_iters 100 = %llu\n", n_iters);
@@ -81,14 +80,8 @@ void main()
 	*/ 
 
 	n_iters = 0;
-	quick_sort(arr, 9, &n_iters);
-	printf("\nquick_sort n_iters 10 = %llu\n", n_iters);
-
-	n_iters = 0;
-	int pos = binary_search(arr, 0, 8, 5, &n_iters);
-	if( pos != -1)
-		printf("Position where the number is: %2d\n", pos);
-	printf("binary_search n_iters 10 = %llu\n", n_iters);
+	quick_sort(arr_10, 10, &n_iters);
+	printf("\nquick_sort n_iters 10 = %llu\n", n_iters); 
 
 	n_iters = 0;
 	quick_sort(arr_100, 100, &n_iters);
