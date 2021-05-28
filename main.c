@@ -9,7 +9,6 @@
 #include "bubble_sort.h"
 #include "quick_sort.h"
 #include "tests.h"
-#include "test.h"
 
 void main()
 {
