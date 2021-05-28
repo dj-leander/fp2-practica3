@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="binary_search.c" />
     <ClCompile Include="bubble_sort.c" />
     <ClCompile Include="insertion_sort.c" />
     <ClCompile Include="main.c" />
@@ -149,6 +150,7 @@
     <ClCompile Include="utils.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="binary_search.h" />
     <ClInclude Include="bubble_sort.h" />
     <ClInclude Include="insertion_sort.h" />
     <ClInclude Include="merge_sort.h" />

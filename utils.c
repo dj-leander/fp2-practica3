@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "utils.h"
+
 #define MAX 100000
 
 /*

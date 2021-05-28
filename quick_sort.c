@@ -11,8 +11,8 @@ int partition(int arr[], int left, int right)
 {
 	int pivot = arr[right];		/* The last element is used as pivot */
 
-	int i = left;		/* left search pointer*/
-	int j = right - 1;	/* right search pointer*/
+	int i = left;		/* left search pointer */
+	int j = right - 1;	/* right search pointer */
 
 	// printf("i = %2u j = %2u\t", i, j);
 
