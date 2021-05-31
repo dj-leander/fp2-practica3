@@ -11,8 +11,6 @@
 #include "utils.h"
 #include "tests.h"
 
-unsigned int ARRAY_SIZES[N_SIZES] = { 10, 100, 1000, 10000, 100000 };
-
 /*
 	Description:
 		Determines if an array is ordered in ascending order.
@@ -55,7 +53,7 @@ double time_sort_function(sort_function func_ptr, int arr[], unsigned int size, 
 	return processing_time;
 }
 
-void test_sort_functions(int *test_arrays[N_MEASUREMENTS][N_SIZES])
+void test_sort_functions(int *test_arrays[][N_MEASUREMENTS], unsigned int array_sizes[], unsigned int n_arrays)
 {
 	function_t functions[N_SORT_FUNCTIONS] = {
 		FUNC_DEF(selection_sort),
@@ -66,15 +64,15 @@ void test_sort_functions(int *test_arrays[N_MEASUREMENTS][N_SIZES])
 	};
 
 	/* evaluate each sort function */
-	for (int i = 0; i < N_SORT_FUNCTIONS; i++)
+	for (unsigned int i = 0; i < N_SORT_FUNCTIONS; i++)
 	{
 		printf("Testing the %s() function\n\n", functions[i].name);
 
 		/* For different array sizes */
-		for (int j = 0; j < N_SIZES; j++)
+		for (unsigned int j = 0; j < n_arrays; j++)
 		{
 			/* Array size */
-			unsigned int size = ARRAY_SIZES[j];
+			unsigned int size = array_sizes[j];
 
 			printf("ARRAY SIZE: %d\n", size);
 
@@ -82,13 +80,13 @@ void test_sort_functions(int *test_arrays[N_MEASUREMENTS][N_SIZES])
 			double total_time = 0;
 
 			/* Do multiple measurements */
-			for (int k = 0; k < N_MEASUREMENTS; k++)
+			for (unsigned int k = 0; k < N_MEASUREMENTS; k++)
 			{
 				/* Number of iterations of inner loop or recursive calls */
 				unsigned long long n_iters = 0;
 				
 				/* Crete a copy of the original random array as we don't want to modify it */
-				int *array_copy = intdup(test_arrays[k][j], size);
+				int *array_copy = intdup(test_arrays[j][k], size);
 
 				/* Call the sort function and measure its time */
 				double time_elapsed = time_sort_function(functions[i].func_ptr, array_copy, size, &n_iters);
