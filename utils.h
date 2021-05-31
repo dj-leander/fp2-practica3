@@ -2,6 +2,8 @@
 
 int *random_vect(unsigned int size);
 
+int *sorted_vector(unsigned int size);
+
 void swap(int *a, int *b);
 
 int *intdup(int *src, unsigned int size);

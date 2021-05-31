@@ -36,6 +36,35 @@ int *random_vect(unsigned int size)
 }
 
 /*
+ * Allocates a vector of specified size and fills it sorted numbers
+ *
+ * Returns a pointer to allocated memory.
+ *
+ * size must not exceed MAX and it cannot be 0.
+ */
+int *sorted_vector(unsigned int size)
+{
+	if (size > MAX || size == 0)
+		return NULL;
+
+	/* Allocate memory */
+	int *arr = (int *)malloc(size * sizeof(int));
+
+	/* Check if malloc not returned NULL */
+	if (!arr)
+	{
+		printf("Couldn't allocate memory\n");
+		exit(EXIT_FAILURE);
+	}
+
+	/* Fill the array with sorted numbers */
+	for (unsigned int i = 0; i < size; i++)
+		arr[i] = i;
+
+	return arr;
+}
+
+/*
  * Duplicates int array of specified size
  * 
  * Returns a pointer to allocated memory on succes or NULL on failure
