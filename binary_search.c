@@ -7,41 +7,36 @@
 		algorithm
 	Parametres:
 		- arr[] : sorted array to analyze
-		- low : lowest index position to start looking
-		- high : highest index position to start looking
+		- size : size of the array
 	Results:
 		Returns the position where the target number is || -1 in case the number
 		doesn't exist.
 */
-int binary_search_aux(int arr[], unsigned int low, unsigned int high, int target, unsigned long long *n_iters)
+int binary_search(int arr[], unsigned int size, int target, unsigned long long *n_iters)
 {
-	unsigned int mid;
-	int mid_value;
+	int start, mid, end, mid_value;
 
-	while (low <= high)
+	start = 0;
+	end = size - 1;
+
+	while (start <= end)
 	{
-		++*n_iters;
+		++ *n_iters;
 
-		mid = (low + high) / 2;
+		mid = (start + end) / 2;
 
 		/*printf("\nlow = %d\tmid = %d\thigh = %d\ttarget = %d\n", low, mid, high, target);*/
 
 		mid_value = arr[mid];
 
-		if (target == mid_value) 
+		if (target == mid_value)
 			return mid;
-		if (target > mid_value) 
-			low = mid + 1;
+		if (target > mid_value)
+			start = mid + 1;
 		else
-			high = mid - 1;
+			end = mid - 1;
 	}
 
 	/* If number not found return -1 */
 	return -1;
-}
-
-/* Wrapper to call binary search*/
-int binary_search(int arr[], unsigned int size, int target, unsigned long long *n_iters)
-{
-	return binary_search_aux(arr, 0, size - 1, target, n_iters);
 }
