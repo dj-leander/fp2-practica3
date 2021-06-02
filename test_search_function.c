@@ -7,9 +7,9 @@
 
 unsigned int SEARCH_ARRAY_SIZES[N_SEARCH_SIZES] = { 1000, 5000, 10000, 25000, 30000, 50000, 100000};
 
-void test_search_function(int *sorted_arrays[N_SEARCH_SIZES][N_SEARCH_MEASUREMENTS], int target)
+void test_search_function(int *sorted_arrays[N_SEARCH_SIZES][N_SEARCH_MEASUREMENTS])
 {
-	clock_t start, end;
+	int target;
 	int mid;		/* Target number position */
 
 	printf("Testing the binary search function\n\n");
@@ -31,26 +31,25 @@ void test_search_function(int *sorted_arrays[N_SEARCH_SIZES][N_SEARCH_MEASUREMEN
 			/* Prepare parameters for the binary search function */
 			unsigned long long n_iters = 0;		/* iterations made by the inner loop of binary search */ 
 
-			/* RECORD TIME AT THE START (Start stopwatch) */
-			start = clock();
+			/* Perform binary searches for elements that we know already exist */
+			if (j < N_RIGHT_MEASUREMENTS)
+			{ 
+				/* Get an array random position */
+				unsigned int random_pos = rand() % size; 
+				target = sorted_arrays[i][j][random_pos];
+			} 
+			else 
+				/* Set the target as a number that we know does not exist */
+				target = RAND_MAX + 1;
 
 			/* Call the binary search function */
-			mid = binary_search(sorted_arrays[i][j], size, target, &n_iters);
-
-			/* RECORD TIME AT THE END (Stop stopwatch) */
-			end = clock();
-
-			double time_elapsed = ((double)end - start) / CLOCKS_PER_SEC;
- 
-			total_time += time_elapsed;
+			mid = binary_search(sorted_arrays[i][j], size, target, &n_iters); 
 
 			/* Determine if target number has been found in the array */
 			bool target_is_found = (mid != -1);
 
-			printf("MEASURE: %d\ttime elapsed: %f s\tn_iters: %10llu\tnumber found? %s\n",
-				j, time_elapsed, n_iters, target_is_found ? "true" : "false");
-		}
-
-		printf("Total time: %f s\taverage: %f s\n\n", total_time, total_time / N_SEARCH_MEASUREMENTS);
+			printf("MEASURE: %d\ttarget: %10d\tn_iters: %10llu\tnumber found? %s\n",
+				j, target, n_iters, target_is_found ? "true" : "false");
+		} 
 	}
 }

@@ -73,21 +73,9 @@ void main()
 	printf("Starting the tests...\n\n");
 
 	/* Test sort functions with sorted arrays */
-	// test_sort_functions(sorted_arrays, sorted_array_sizes, N_SORTED);
+	// test_sort_functions(sorted_arrays, sorted_array_sizes, N_SORTED); 
 
-	/* Get the target number to look in the array from the user input */
-	char buf[BUFSIZ];
-	int user_target;
-
-	do
-	{
-		printf("n: ");
-		if (fgets(buf, BUFSIZ - 1, stdin) == NULL || sscanf_s(buf, "%d", &user_target) != 1)
-			printf("Invalid number\n");
-
-	} while (sscanf_s(buf, "%d", &user_target) != 1);
-
-	test_search_function(search_sorted_arrays, user_target);
+	test_search_function(search_sorted_arrays);
 
 	printf("Finished testing.\n");
 

@@ -13,10 +13,12 @@
 		Returns the position where the target number is || -1 in case the number
 		doesn't exist.
 */
-int binary_search_aux(int arr[], unsigned int low, unsigned int high, int target, unsigned long long *n_iters)
+int binary_search(int arr[], unsigned size, int target, unsigned long long *n_iters)
 {
-	unsigned int mid;
-	int mid_value;
+	int mid, mid_value, low, high;
+
+	low = 0;
+	high = size - 1;
 
 	while (low <= high)
 	{
@@ -40,8 +42,3 @@ int binary_search_aux(int arr[], unsigned int low, unsigned int high, int target
 	return -1;
 }
 
-/* Wrapper to call binary search*/
-int binary_search(int arr[], unsigned int size, int target, unsigned long long *n_iters)
-{
-	return binary_search_aux(arr, 0, size - 1, target, n_iters);
-}
