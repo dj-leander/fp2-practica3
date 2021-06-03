@@ -6,7 +6,7 @@
  * 
  * arr[l..m] and arr[m+1..r]
  */
-void merge(int arr[], unsigned int l, unsigned int m, unsigned int r)
+void merge(int arr[], unsigned int l, unsigned int m, unsigned int r, unsigned long long *n_iters)
 {
     /* Size of the left subarray L[l..m] */
     unsigned int n1 = m - l + 1;
@@ -44,6 +44,10 @@ void merge(int arr[], unsigned int l, unsigned int m, unsigned int r)
      * in the correct position of the original array at arr[l..r]
      */
     while (i < n1 && j < n2) {
+
+        /* Increment n_iters, in this case, the number of comparisons */
+        ++*n_iters;
+
         if (L[i] <= R[j]) {
             arr[k] = L[i];
             i++;
@@ -80,18 +84,16 @@ void merge(int arr[], unsigned int l, unsigned int m, unsigned int r)
  */
 void merge_sort_aux(int arr[], unsigned int l, unsigned int r, unsigned long long *n_iters)
 {
+
+    /* Increment n_iters, in this case, the number of recursive calls */
+    ++*n_iters;
+
     /*
      * Do nothing if array contains a single element or it is empty.
-     * (base case, sorted by definition)
+     * (base case, sorted by definition).
      */
     if (l < r)
-    {
-        /*
-         * Incremet the number of iterations only if the function does something
-         * (in this case, recursive calls)
-         */
-        ++*n_iters;
-
+    {       
         /* m is where the array is divided into two subarrays */
         unsigned int m = (l + r) / 2;
 
@@ -100,7 +102,7 @@ void merge_sort_aux(int arr[], unsigned int l, unsigned int r, unsigned long lon
         merge_sort_aux(arr, m + 1, r, n_iters);
 
         /* Merge the sorted subarrays */
-        merge(arr, l, m, r);
+        merge(arr, l, m, r, n_iters);
     }
 }
 

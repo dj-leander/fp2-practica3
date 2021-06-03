@@ -7,7 +7,7 @@
 *	Description:
 *		Returns the position of the pivot element. 
 */
-unsigned int partition(int arr[], unsigned int l, unsigned int r)
+unsigned int partition(int arr[], unsigned int l, unsigned int r, unsigned long long *n_iters)
 {
 	int pivot = arr[r];		/* The last element is used as pivot */
 
@@ -19,9 +19,14 @@ unsigned int partition(int arr[], unsigned int l, unsigned int r)
 	 * and all processed elements <= pivot are kept to the left, with indices < i.
 	 */
 	for (j = l; j < r; j++)
+	{
+		/* Increment n_iters, in this case, the number of comparisons */
+		++*n_iters;
+		
 		if (arr[j] <= pivot)
 			/* First swap, then increment i */
 			swap(&arr[i++], &arr[j]);
+	}
 
 	/*
 	 * By swapping pivot A[r] with A[i], now all elements <= pivot are kept to the left,
@@ -44,10 +49,10 @@ unsigned int partition(int arr[], unsigned int l, unsigned int r)
  void quick_sort_aux(int arr[], unsigned int l, unsigned int r, unsigned long long *n_iters)
 {
 	 if (l < r) {
-		 /* Increment the # of times this function is accessed */
+		 /* Increment num iters, in this case, the number of recursive calls */
 		 ++*n_iters;
 
-		 unsigned int pivot_pos = partition(arr, l, r);
+		 unsigned int pivot_pos = partition(arr, l, r, n_iters);
 
 		 /* Pivot must be higher that leftmost index */
 		 if (pivot_pos > l)

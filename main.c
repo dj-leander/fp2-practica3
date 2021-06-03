@@ -7,13 +7,13 @@
 #include "tests.h"
 #include "test_search_function.h"
 
-#define N_SIZES 5
+#define N_SIZES 9
 #define N_SORTED 4
 
 void main()
 {
 	/* Sizes of random arrays for testing purposes */
-	unsigned int array_sizes[N_SIZES] = { 10, 100, 1000, 10000, 100000 };
+	unsigned int array_sizes[N_SIZES] = { 10, 100, 1000, 10000, 20000, 40000, 60000, 80000, 100000 };
 
 	/* Sizes of sorted arrays for testing purposes */
 	unsigned int sorted_array_sizes[N_SORTED] = { 10, 20, 100, 1000 }; 
@@ -40,7 +40,7 @@ void main()
 	printf("Starting the tests...\n\n");
 
 	/* Test sort functions with random arrays */
-	// test_sort_functions(test_arrays, array_sizes, N_SIZES);
+	test_sort_functions(test_arrays, array_sizes, N_SIZES);
 
 	printf("Finished testing.\n");
 
@@ -70,10 +70,10 @@ void main()
 			quick_sort(search_sorted_arrays[i][j], SEARCH_ARRAY_SIZES[i], &n_iters); 
 		}
 
-	printf("Starting the tests...\n\n");
+	printf("Starting binary search tests...\n\n");
 
 	/* Test sort functions with sorted arrays */
-	// test_sort_functions(sorted_arrays, sorted_array_sizes, N_SORTED); 
+	test_sort_functions(sorted_arrays, sorted_array_sizes, N_SORTED); 
 
 	test_search_function(search_sorted_arrays);
 
