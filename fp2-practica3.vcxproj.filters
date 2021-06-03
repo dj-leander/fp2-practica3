@@ -38,7 +38,7 @@
     <ClCompile Include="binary_search.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test_search_function.c">
+    <ClCompile Include="test_binary_search.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -76,7 +76,7 @@
     <ClInclude Include="binary_search.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="test_search_function.h">
+    <ClInclude Include="test_binary_search.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
